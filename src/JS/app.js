@@ -41,6 +41,7 @@ myapp.controller("mainController",["$scope",function ($scope) {
             var imgTumblr = parentTumblr.innerHTML;
             parentTumblr.innerHTML = '<a target= "_blank" href = ' + $scope.list[4] + '>' + imgTumblr + '</a>';
         }
+        //Check if Valid, if so, set src to visible and show check, if not valid set visible and show x
     };
     var reset = document.getElementById("arrayReset");
     if (reset){
