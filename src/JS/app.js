@@ -16,7 +16,10 @@ myapp.controller("mainController",["$scope",function ($scope) {
         $scope.list.push($scope.githubLink + $scope.profileHandle);
         $scope.list.push($scope.instagramLink + $scope.profileHandle);
         $scope.list.push("http://" + $scope.profileHandle + ".tumblr.com/");
+        //check if links are valid using node
         if (document.getElementById("twitterLink") != null){
+            //if valid set to green check and unhide
+            //else set to red x and unhide
             var parentTwitter = document.getElementById("twitterLink").parentNode;
             var imgTwitter = parentTwitter.innerHTML;
             parentTwitter.innerHTML = '<a target= "_blank" href = ' + $scope.list[0] + '>' + imgTwitter + '</a>';
@@ -41,7 +44,6 @@ myapp.controller("mainController",["$scope",function ($scope) {
             var imgTumblr = parentTumblr.innerHTML;
             parentTumblr.innerHTML = '<a target= "_blank" href = ' + $scope.list[4] + '>' + imgTumblr + '</a>';
         }
-        //Check if Valid, if so, set src to visible and show check, if not valid set visible and show x
     };
     var reset = document.getElementById("arrayReset");
     if (reset){
