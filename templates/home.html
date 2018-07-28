@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/home.css"/>
     <link href='https://fonts.googleapis.com/css?family=Kadwa' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -16,8 +17,9 @@
             <form>
                 <label for="user">Hover to Search</label>
                 <!--    Add label if needed -->
-                <input type="text" id="user" value="Search" onkeypress="return runSearch(event)" onblur="this.value='click'" onfocus="if(this.value == 'click'){this.value = '';}" name="search" autocomplete="true" autocorrect="true"/>
+                <input type="text" id="user" value="Search" onkeypress="return runSearch(event)" onblur="this.value='Search'" onfocus="if(this.value == 'click'){this.value = '';}" name="search" autocomplete="true" autocorrect="true"/>
             </form>
         </div>
+        <div id = "wrapper"></div>
     </body>
 </html>
