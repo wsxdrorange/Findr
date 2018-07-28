@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" type="text/css" href="../static/css/Styler.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/home.css"/>
     <link href='https://fonts.googleapis.com/css?family=Kadwa' rel='stylesheet' type='text/css'>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <head>
         <title>Profile Finder</title>
     </head>
     <body>
         <div class="video-container">
             <video frameborder=0 autoplay muted loop>
-                <source src="{{url_for('static',filename='media/video.mp4')}}" type="video/mp4">
+                <source src="{{url_for('static',filename='media/The-Launch.mp4')}}" type="video/mp4">
             </video>
         </div>
         <div class="container">
             <form>
-                <label for="user">hover</label>
+                <label for="user">Hover to Search</label>
                 <!--    Add label if needed -->
-                <input type="text" id="user" value="click" onblur="this.value='click'" onfocus="if(this.value == 'click'){this.value = '';}" name="search" autocomplete="true" autocorrect="true"/>
+                <input type="text" id="user" value="Search" onkeypress="return runSearch(event)" onblur="this.value='click'" onfocus="if(this.value == 'click'){this.value = '';}" name="search" autocomplete="true" autocorrect="true"/>
             </form>
         </div>
     </body>
