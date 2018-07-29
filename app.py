@@ -1,5 +1,4 @@
 from flask import Flask, render_template, url_for, request
-import main
 import json
 
 app = Flask(__name__)
