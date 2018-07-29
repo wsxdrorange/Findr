@@ -44,10 +44,6 @@ input {
     opacity: 1;
 }
 
-.icon-block {
-  padding: 0 15px;
-}
-
 input:hover {
     color: black;
 }
@@ -60,6 +56,24 @@ select:focus {
     border: none;
 }
 
+.icon-block {
+    padding: 0 15px;
+}
+
+.auto-border {
+    outline: 1px solid black;
+}
+
+.auto-resizing {
+    max-height: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+#loadout{
+    margin-top: 20vh;
+}
+
 #search-container {
     width: 100%;
     margin-left: 0px;
@@ -70,4 +84,8 @@ select:focus {
     margin-left: auto;
     margin-right: auto;
     width: 8vm;
+}
+
+#return{
+    margin-right: 10vh;
 }
