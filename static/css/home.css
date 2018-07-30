@@ -47,7 +47,17 @@ input {
 input:hover {
     color: black;
 }
+input:hover::-webkit-input-placeholder{
+    color: black;
+}
 
+input:hover::-moz-placeholder{
+    color: black;
+}
+
+input:hover::-ms-input-placeholder{
+    color: black;
+}
 /* Add in the focus to see bar size and where it is */
 input:focus,
 input:hover,
