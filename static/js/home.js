@@ -17,27 +17,74 @@ function editStatusBubbles() {
     var i;
     for (i = 0; i < urls.length; i++) {
         document.getElementById(statusBubbleSelectors[i]).href = urls[i];
-        if (UrlExists(urls[i])) {
-            document.getElementById(statusBubbleSelectors[i]).style.background = '#26a69a';
-        }
+
+        // if (UrlExists(urls[i])) {
+        //     document.getElementById(statusBubbleSelectors[i]).style.background = '#26a69a';
+        // }
+        UrlExists(urls[i], function(success){
+            if (success){
+                document.getElementById(statusBubbleSelectors[i]).style.background = '#26a69a';
+                console.log(urls[i] + " " + "SUCESS");
+            }
+        });
     }
 }
 
-function UrlExists(url) {
-    var request;
-    if (window.XMLHttpRequest)
-        request = new XMLHttpRequest();
-    else
-        request = new ActiveXObject("Microsoft.XMLHTTP");
-    request.open('GET', url, false);
-    request.send(); // there will be a 'pause' here until the response to come.
-    // the object request will be actually modified
-    console.log(request.status);
-    if (request.status === 404) {
-        return false;
-    }
-    return true;
-}
+// // Create the XHR object.
+// function createCORSRequest(method, url) {
+//     var xhr = new XMLHttpRequest();
+//     if ("withCredentials" in xhr) {
+//         // XHR for Chrome/Firefox/Opera/Safari.
+//         xhr.open(method, url, true);
+//     } else if (typeof XDomainRequest != "undefined") {
+//         // XDomainRequest for IE.
+//         xhr = new XDomainRequest();
+//         xhr.open(method, url);
+//     } else {
+//         // CORS not supported.
+//         xhr = null;
+//     }
+//     return xhr;
+// }
+//
+// // Make the actual CORS request.
+// function makeCorsRequest(url) {
+//     // This is a sample server that supports CORS
+//
+//     var xhr = createCORSRequest('GET', url);
+//     if (!xhr) {
+//         alert('CORS not supported');
+//         return;
+//     }
+//
+//     xhr.send();
+//
+//     return xhr.status;
+// }
+// function UrlExists(url) {
+//     var status = makeCorsRequest(url);
+//     console.log(status);
+//     if (status === 404) {
+//         return false;
+//     }
+//     return true;
+// }
+
+var  UrlExists = function(url, callback){
+    $.ajax({
+        type: 'HEAD',
+        url: url,
+        success: function(){
+            console.log("Sucess!");
+            callback(true);
+        },
+        error: function() {
+            callback(false);
+        }
+    });
+};
+
+
 
 window.onload = function () {
     document.getElementById("user").onkeydown = function (event) {
@@ -50,6 +97,7 @@ window.onload = function () {
             for (var i = 0; i < urls.length; i++) {
                 console.log(urls[i]);
             }
+
             editStatusBubbles();
 
             $('html, body').animate({ //smooth scroll down
