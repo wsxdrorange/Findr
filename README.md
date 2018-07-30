@@ -12,3 +12,5 @@ Flask Documentation:
 
 Made using Materialize JS:
   https://materializecss.com/
+  
+Needs CORS implementation to work as fully intended.
